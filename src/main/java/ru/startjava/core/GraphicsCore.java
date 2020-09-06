@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 
 public abstract class GraphicsCore extends JPanel implements ActionListener {
     private final int delay = 500;
-    private final int width = 240;
-    private final int height = 230;
+    private final int width = 800;
+    private final int height = 600;
     private Timer animationTimer;
 
     protected GraphicsCore() {
@@ -26,8 +26,6 @@ public abstract class GraphicsCore extends JPanel implements ActionListener {
         g.fillRect(0, 0, getWidth(), getHeight());
 
         showGraphics(g);
-
-        System.out.println(this.getHeight());
     }
 
     protected abstract void showGraphics(Graphics graphics);
