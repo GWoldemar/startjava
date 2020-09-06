@@ -30,10 +30,13 @@ public class WatchApp extends GraphicsCore {
         // 3. Нарисовать центр
 
         // 4. Нарисовать минутную стрелку
+        // i = 12
 
         // 5. Нарисовать часовую стрелку
+        // i = 4
 
         // 6. Нарисовать секундную стрелку
+        // i = 10
     }
 
     public static void main(String[] args) {
