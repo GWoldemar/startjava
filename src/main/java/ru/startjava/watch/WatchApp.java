@@ -3,12 +3,25 @@ package ru.startjava.watch;
 import ru.startjava.core.GraphicsCore;
 
 import java.awt.*;
+import java.time.LocalDateTime;
 
 import static java.lang.Math.*;
 
 public class WatchApp extends GraphicsCore {
     public WatchApp() {
         super();
+    }
+
+    private int getHour() {
+        return LocalDateTime.now().getHour();
+    }
+
+    private int getMinute() {
+        return LocalDateTime.now().getMinute();
+    }
+
+    private int getSecond() {
+        return LocalDateTime.now().getSecond();
     }
 
     @Override
@@ -34,20 +47,20 @@ public class WatchApp extends GraphicsCore {
 
         // 4. Нарисовать минутную стрелку
         // i = 12
-        final int xm = (int) (300 + round(240 * sin(6.28 * 30 * 12 / 360)));
-        final int ym = (int) (300 - round(240 * cos(6.28 * 30 * 12 / 360)));
+        final int xm = (int) (300 + round(240 * sin(6.28 * getMinute() / 60)));
+        final int ym = (int) (300 - round(240 * cos(6.28 * getMinute() / 60)));
         graphics.drawLine(300,300,xm,ym);
 
         // 5. Нарисовать часовую стрелку
         // i = 4
-        final int xh = (int) (300 + round(150 * sin(6.28 * 30 * 16 / 360)));
-        final int yh = (int) (300 - round(150 * cos(6.28 * 30 * 16 / 360)));
+        final int xh = (int) (300 + round(150 * sin(6.28 * getHour() / 12)));
+        final int yh = (int) (300 - round(150 * cos(6.28 * getHour() / 12)));
         graphics.drawLine(300,300,xh,yh);
 
         // 6. Нарисовать секундную стрелку
         // i = 10
-        final int xs = (int) (300 + round(200 * sin(6.28 * 30 * 2 / 360)));
-        final int ys = (int) (300 - round(200 * cos(6.28 * 30 * 2 / 360)));
+        final int xs = (int) (300 + round(200 * sin(6.28 * getSecond() / 60)));
+        final int ys = (int) (300 - round(200 * cos(6.28 * getSecond() / 60)));
         graphics.setColor(Color.RED);
         graphics.drawLine(300,300,xs,ys);
     }
